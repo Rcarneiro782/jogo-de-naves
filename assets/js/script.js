@@ -6,6 +6,8 @@ function start() {
 	$("#fundoGame").append("<div id='inimigo1' class='anima2' ></div>");
 	$("#fundoGame").append("<div id='inimigo2'></div>");
 	$("#fundoGame").append("<div id='amigo' class='anima3'></div>");
+	$("#fundo-game").append("<div id='placar'></div>");
+	$("#fundo-game").append("<div id='energia'></div>");
 
 
 	var podeAtirar = true;
@@ -152,27 +154,74 @@ function start() {
 				podeAtirar = true;
 
 			}
-		} // Fecha executaDisparo()
+		}
 	}
 
 	function colisao() {
-		var colisao1 = ($("#jogador").collision($("#inimigo1")));
-		// jogador com o inimigo1
-			
-			if (colisao1.length>0) {
-				
-			inimigo1X = parseInt($("#inimigo1").css("left"));
-			inimigo1Y = parseInt($("#inimigo1").css("top"));
-			explosao1(inimigo1X,inimigo1Y);
-		
-			posicaoY = parseInt(Math.random() * 334);
-			$("#inimigo1").css("left",694);
-			$("#inimigo1").css("top",posicaoY);
+		let colisao1 = ($("#jogador").collision($("#inimigo1")));
+		let colisao2 = ($("#jogador").collision($("#inimigo2")));
+		let colisao3 = ($("#disparo").collision($("#inimigo1")));
+        let colisao4 = ($("#disparo").collision($("#inimigo2")));
+		let colisao5 = ($("#jogador").collision($("#amigo")));
+		let colisao6 = ($("#inimigo2").collision($("#amigo")));
+
+		if(colisao1.length > 0 || colisao3.length > 0){
+			if(colisao3.length > 0){
+				pontos += 100;
+				placar();
+				dificuldade = Math.min(dificuldade + .3,10);
+				limpaTiro();
+			} else {
+				energiaAtual--;
+				energia();
 			}
 		
-		} 
+			inimigo1X = parseInt($("#inimigo1").css("left"));
+			inimigo1Y = parseInt($("#inimigo1").css("top"));
+			
+			explosao(inimigo1X, inimigo1Y);
+			criaInimigo1();
+		}
+		if(colisao5.length > 0){
+			somResgate.play();
+			amigosSalvos++;
+			placar();
+			criaAmigo();
+		}
+		
+		//Colisão inimig2 com amigo
+		if(colisao6.length > 0){
+			somPerdido.play();
+			amigosPerdidos++;
+			placar();
+		
+			let x = parseInt($("#amigo").css("left"));
+			let y = parseInt($("#amigo").css("top"));
+			
+			explosão3(x,y);
+			
+			criaAmigo();
+		}
+	
+	
+	
+	
+	}
+
+
+
+
+
+
+
+
+
+
+
 
 
 }
+
+
 
 
