@@ -33,13 +33,28 @@ body {
 	border-style:solid;
 }
 
+#inicio{
+	width: 350px;
+	height: 200px;
+	background-color: #fff;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 100px;
+	text-align: center;
+	padding: 10px;
+}
+
+#inicio p{
+	margin: 20px 0;
+}
+
 #jogador {
-	width:256px;
-	height:66px;
-	position:absolute;
-	left:8px;
-	top:179px;
-background-image:url(../imgs/apache.png);
+	width: 256px;
+	height: 66px;
+	position: absolute;
+	left: 8px;
+	top: 179px;
+	background-image: url(../imgs/apache.png);
 
 }
 
@@ -47,9 +62,9 @@ background-image:url(../imgs/apache.png);
 	width: 256px;
 	height: 66px;
 	position: absolute;
-	left: 689px;
+	left: 860px;
 	top: 253px;
-	background-image:url(../imgs/inimigo1.png);
+	background-image: url(../imgs/inimigo1.png);
 	
 }
 
@@ -57,7 +72,7 @@ background-image:url(../imgs/apache.png);
 	width: 165px;
 	height: 70px;
 	position: absolute;
-	left: 775px;
+	left: 1060px;
 	top: 447px;
 	background-image: url(../imgs/inimigo2.png);
 }
@@ -68,42 +83,79 @@ background-image:url(../imgs/apache.png);
 	position: absolute;
 	left: 10px;
 	top: 464px;
-	background-image:url(../imgs/amigo.png);
+	background-image: url(../imgs/amigo.png);
 }
-
-#inicio {
-	width:350px;
-	height:200px;
-	background-color:#FFF;
- 	margin-left:auto;
-        margin-right:auto;
- 	margin-top:100px;
-	text-align:center;
-	padding:10px;
-
-}
-
-
-#disparo {
+#tiro{
 	width: 50px;
 	height: 8px;
 	position: absolute;
 	background-image: url(../imgs/disparo.png);
 }
 
-/*#explosao1 {
-	width:15px;
-	height:87px;
-	position:absolute;
-
+#explosao{
+	width: 15px;
+	height: 87px;
+	position: absolute;
 }
 
-#explosao2 {
-	width:15px;
-	height:87px;
-	position:absolute;
-	
-}*/
+#explosao3{
+	width: 44px;
+	height: 51px;
+	position: absolute;
+}
+#placar{
+	width: 450px;
+	height: 50px;
+	position: absolute;
+	left: 5px;
+	top: 590px;
+}
+
+h2{
+	font-family: Titulo;
+	font-size: 20px;
+	color: #fff;
+}
+
+#energia{
+	width: 140px;
+	height: 38px;
+	position: absolute;
+	left: 750px;
+	top: 7px;
+}
+
+h3{
+	font-family: Titulo;
+	font-size: 20px;
+	color: #603a03;
+	margin: 15px 15px 12px 15px;
+}
+
+#fim{
+	width: 350px;
+	height: 200px;
+	background-color: #fff;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 80px;
+	text-align: center;
+	padding: 10px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+#reinicia{
+	cursor: pointer;
+	background: #ccc;
+	border-radius: 5px;
+}
+
+#reinicia:hover{
+	background: #999;
+}
 
 
 
